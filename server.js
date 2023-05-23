@@ -15,6 +15,13 @@ app.get('/greeting/:name', (req, res) => {
 })
 
 
+app.get('/tip/:total/:tipPercentage', (req, res) => {
+    const totalNumber = req.params.total;
+    const tipPercentageNumber = req.params.tipPercentage;
+    const tipTotal = (tipPercentageNumber/totalNumber) * 100;
+    res.send(`The total, ${totalNumber}, and percentage, ${tipPercentageNumber}, will give you a tip of ${tipTotal}.`)
+})
+
 app.listen(port, () => {
     console.log(`listening on ${port}`)
 })
